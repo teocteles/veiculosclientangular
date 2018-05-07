@@ -15,9 +15,9 @@
 
   <div class="container">
      <div class="row-fluid">
-        <div class="alert alert-danger" *ngIf="mensagem" #mensagem role="alert">
+        <div class="alert alert-{{tipoMensagem}}" *ngIf="mensagem" role="alert">
             {{mensagem}}
-         </div>
+        </div>
          <router-outlet></router-outlet>
      </div>
   </div>

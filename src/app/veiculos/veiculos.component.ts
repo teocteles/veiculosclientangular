@@ -1,6 +1,7 @@
 import { VeiculosService } from './shared/veiculos.service';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Veiculo } from './shared/veiculo';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-veiculos',
@@ -15,7 +16,8 @@ export class VeiculosComponent implements OnInit, OnDestroy {
   private inscricao;
 
   constructor(
-    private veiculoService: VeiculosService
+    private veiculoService: VeiculosService,
+    private app:AppComponent
   ) {}
 
   ngOnInit(){
@@ -26,7 +28,8 @@ export class VeiculosComponent implements OnInit, OnDestroy {
 
     }, (err) => {
       console.log(err);
-      this.mensagem = "<b>Erro:</b> Registro não encontrado";
+      this.app.mensagem = "<b>Erro:</b> Registro não encontrado";
+      this.app.tipoMensagem = "danger";
     });
   }
 

@@ -2,6 +2,7 @@ import { Veiculo } from './../shared/veiculo';
 import { Component, OnInit } from '@angular/core';
 import { VeiculosService } from '../shared/veiculos.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-veiculo-det',
@@ -17,7 +18,8 @@ export class VeiculoDETComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private veiculoService: VeiculosService
+    private veiculoService: VeiculosService,
+    private app:AppComponent
   ) { }
 
   ngOnInit() {
@@ -36,8 +38,8 @@ export class VeiculoDETComponent implements OnInit {
 
       }, err => {
         console.log(err);
-        this.mensagem = "<b>Erro:</b> Registro não encontrado";
-
+        this.app.mensagem = "<b>Erro:</b> Registro não encontrado";
+        this.app.tipoMensagem = "danger";
       });
 
 
@@ -49,10 +51,14 @@ export class VeiculoDETComponent implements OnInit {
   delete() {
     if(this.id) {
         this.veiculoService.deleteVeiculo(this.id).subscribe(res => {
+          this.app.mensagem  = "Excluído com sucesso!";
+          this.app.tipoMensagem = "success";
+
           this.router.navigate(['veiculos']);
         }, err => {
           console.log(err);
-          this.mensagem = "<b>Erro:</b> Não foi possível deletar o registro.";
+          this.app.mensagem  = "<b>Erro:</b> Não foi possível deletar o registro.";
+          this.app.tipoMensagem = "danger";
         });
 
     }

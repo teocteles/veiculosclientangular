@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ExecSyncOptionsWithBufferEncoding } from 'child_process';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  @Input() mensagem;
+  public mensagem:string;
+  public tipoMensagem:string;
 }

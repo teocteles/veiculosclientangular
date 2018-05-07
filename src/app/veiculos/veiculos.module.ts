@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VeiculoCADComponent } from './veiculo-cad/veiculo-cad.component';
 import { VeiculoDETComponent } from './veiculo-det/veiculo-det.component';
+import { AppComponent } from '../app.component';
 
 @NgModule({
   imports: [

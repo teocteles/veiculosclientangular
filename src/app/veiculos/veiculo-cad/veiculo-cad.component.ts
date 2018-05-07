@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Veiculo } from '../shared/veiculo';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-veiculo-cad',
@@ -26,7 +27,8 @@ export class VeiculoCADComponent implements OnInit, OnDestroy {
     formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private veiculoService: VeiculosService
+    private veiculoService: VeiculosService,
+    private app: AppComponent
   ) {
     this.form = formBuilder.group({
       veiculo: ['', [
@@ -70,7 +72,8 @@ export class VeiculoCADComponent implements OnInit, OnDestroy {
 
       }, err => {
         console.log(err);
-        this.mensagem = "<b>Erro:</b> Registro não encontrado";
+        this.app.mensagem  = "<b>Erro:</b> Registro não encontrado";
+        this.app.tipoMensagem = "danger";
       });
 
 
@@ -90,18 +93,28 @@ export class VeiculoCADComponent implements OnInit, OnDestroy {
             console.log(veiculoValue);
 
             this.veiculoService.updateVeiculo(veiculoValue).subscribe(res => {
+              this.app.mensagem = "Atualizado com sucesso!";
+              this.app.tipoMensagem = "success";
+
               this.router.navigate(['veiculos']);
+
             }, err => {
               console.log(err);
-              this.mensagem = "Erro ao atualizar! Favor verifique se todos os dados foram digitados corretamente.";
+              this.app.mensagem = "Erro ao atualizar! Favor verifique se todos os dados foram digitados corretamente.";
+              this.app.tipoMensagem = "danger";
             });
 
         }else {
             this.veiculoService.addVeiculo(veiculoValue).subscribe(res => {
+
+              this.app.mensagem = "Cadastrado com sucesso!";
+              this.app.tipoMensagem = "success";
+
               this.router.navigate(['veiculos']);
             }, err => {
               console.log(err);
-              this.mensagem = "Erro ao cadastrar! Favor verifique se todos os dados foram digitados corretamente.";
+              this.app.mensagem = "Erro ao cadastrar! Favor verifique se todos os dados foram digitados corretamente.";
+              this.app.tipoMensagem = "danger";
             });
         }
 
