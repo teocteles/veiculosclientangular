@@ -1,0 +1,42 @@
+  <h3>{{titulo}}</h3>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="veiculo">Veículo</label>
+        <input type="text" class="form-control validate" [(ngModel)]="veiculo.veiculo" formControlName="veiculo" id="veiculo" placeholder="Nome do Veículo">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="marca">Marca</label>
+        <input type="email" class="form-control" id="marca" [(ngModel)]="veiculo.marca" formControlName="marca" placeholder="Marca">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="ano">Ano</label>
+        <input type="number" class="form-control" id="ano" [(ngModel)]="veiculo.ano" formControlName="ano" placeholder="2018" >
+      </div>
+
+      <div class="form-group col-md-4">
+          <label for="vendido">Vendido</label>
+          <select class="form-control" id="vendido" [(ngModel)]="veiculo.vendido" formControlName="vendido">
+              <option value="1">Sim</option>
+              <option value="0">Não</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="descricao">Descricão</label>
+        <textarea class="form-control" id="descricao" placeholder="Descricão" [(ngModel)]="veiculo.descricao" formControlName="descricao" rows="3"></textarea>
+      </div>
+    </div>
+
+    <a href="/veiculos" class="btn btn-primary">Voltar</a>
+    <button type="submit" class="btn btn-primary" style="margin-left:10px;">{{tituloBotao}}</button>
+
+  </form>
