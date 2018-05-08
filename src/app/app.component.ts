@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { ExecSyncOptionsWithBufferEncoding } from 'child_process';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

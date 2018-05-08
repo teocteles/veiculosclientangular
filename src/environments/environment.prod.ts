@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlAPI: "http://apilaravel.agenciamk3.com.br/api/veiculos"
 };
