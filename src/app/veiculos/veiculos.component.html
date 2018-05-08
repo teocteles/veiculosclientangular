@@ -1,26 +1,27 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Opções</th>
-        <th scope="col">#</th>
-        <th scope="col">Veiculo</th>
-        <th scope="col">Marca</th>
-        <th scope="col">Ano</th>
-        <th scope="col">Descrição</th>
-        <th scope="col">Vendido</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let veiculo of veiculos">
-        <td> <a href="/veiculos/editar/{{veiculo.id}}" title="Editar" style="color:#4a6d90;"> <i class="fa fa-pencil" aria-hidden="true"></i> </a> <a href="/veiculos/detalheexcluir/{{veiculo.id}}" title="Excluir" style="color:#c50d0d;"> <i class="fa fa-trash" aria-hidden="true"></i> </a> </td>
-        <th scope="row">{{veiculo.id}}</th>
-        <td>{{veiculo.veiculo}}</td>
-        <td>{{veiculo.marca}}</td>
-        <td>{{veiculo.ano}}</td>
-        <td>{{veiculo.descricao}}</td>
-        <td>{{veiculo.vendido}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="table-responsive">
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Opções</th>
+          <th scope="col">#</th>
+          <th scope="col">Veiculo</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Ano</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Vendido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let veiculo of veiculos">
+          <td> <a href="/veiculos/editar/{{veiculo.id}}" title="Editar" style="color:#4a6d90;"> <i class="fa fa-pencil" aria-hidden="true"></i> </a> <a href="/veiculos/detalheexcluir/{{veiculo.id}}" title="Excluir" style="color:#c50d0d;"> <i class="fa fa-trash" aria-hidden="true"></i> </a> </td>
+          <th scope="row">{{veiculo.id}}</th>
+          <td>{{veiculo.veiculo}}</td>
+          <td>{{veiculo.marca}}</td>
+          <td>{{veiculo.ano}}</td>
+          <td>{{veiculo.descricao}}</td>
+          <td>{{veiculo.vendido}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
